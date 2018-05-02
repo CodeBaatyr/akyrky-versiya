@@ -16,6 +16,7 @@
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
+        <!--<many-to-one field="category" inversed-by="mediaImgAktive" target-entity="\MainBundle\Entity\Category" />-->
 
     </entity>
 </doctrine-mapping>

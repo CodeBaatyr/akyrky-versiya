@@ -1,0 +1,288 @@
+{% extends "::base.html.twig" %}
+
+ {% block stylesheets %}
+     {{ parent() }}
+
+
+
+     <style>
+         #alertTitleTime{
+             text-align: center;
+             font-weight:bold ;
+             font-size: 130%;
+             /*font-style: italic;*/
+             color: red;
+         }
+         #alertContentTime{
+             font-style: italic;
+         }
+         .bolum__foto__footer{
+             display: none;
+         }
+         .bolum__foto__check,.bolum__foto__check__btn{
+             display: none;
+         }
+         #category_id_surot_menen_ishto_id{
+            display: none;
+
+
+         }
+
+         .checkmark{
+             display: none;
+         }
+         ul.checkmark li {
+
+             font-size: 60px;
+             margin-bottom: 1em;
+             list-style-type: none;
+             padding: 0.25em 0 0 2.5em;
+             position: relative;
+             float: left;
+         }
+         ul.checkmark li:before {
+             content: " ";
+             display: block;
+             border:  solid 0.8em #FFFFFF;
+             border-radius: 0.8em;
+             height: 0;
+             width: 0;
+             position: absolute;
+             left: 0.5em;
+             top: 40%;
+             margin-top: -0.5em;
+         }
+         ul.checkmark li:after {
+             content: " ";
+             display: block;
+             width: 0.3em;
+             height: 0.6em;
+             border: solid #8DBC01;
+             border-width: 0 0.2em 0.2em 0;
+             position: absolute;
+             left: 1em;
+             top: 40%;
+             margin-top: -0.2em;
+             -webkit-transform: rotate(45deg);
+             -moz-transform: rotate(45deg);
+             -o-transform: rotate(45deg);
+             transform: rotate(45deg);
+         }
+         .close-button {
+             display: none;
+             float: left;
+             margin-right: 10px;
+             -webkit-box-sizing: content-box;
+             -moz-box-sizing: content-box;
+             box-sizing: content-box;
+             width: 0.75em;
+             height: 0.75em;
+             position: relative;
+             border: none;
+             -webkit-border-radius: 1em;
+             border-radius: 1em;
+             font: normal 8em/normal Arial, Helvetica, sans-serif;
+             color: rgba(0,0,0,1);
+             -o-text-overflow: clip;
+             text-overflow: clip;
+             background: white;
+         }
+
+         .close-button::before {
+             display: inline-block;
+             -webkit-box-sizing: content-box;
+             -moz-box-sizing: content-box;
+             box-sizing: content-box;
+             width: 0.45em;
+             height: 0.1em;
+             position: absolute;
+             content: "";
+             top: 0.33em;
+             left: 0.155em;
+             border: none;
+             font: normal 100%/normal Arial, Helvetica, sans-serif;
+             color: rgba(0,0,0,1);
+             -o-text-overflow: clip;
+             text-overflow: clip;
+             background: red;
+             text-shadow: none;
+             -webkit-transform: rotateZ(45deg)   ;
+             transform: rotateZ(45deg)   ;
+         }
+
+         .close-button::after {
+             display: inline-block;
+             -webkit-box-sizing: content-box;
+             -moz-box-sizing: content-box;
+             box-sizing: content-box;
+             width: 0.45em;
+             height: 0.1em;
+             position: absolute;
+             content: "";
+             top: 0.33em;
+             left: 0.155em;
+             border: none;
+             font: normal 100%/normal Arial, Helvetica, sans-serif;
+             color: rgba(0,0,0,1);
+             -o-text-overflow: clip;
+             text-overflow: clip;
+             background: red;
+             text-shadow: none;
+             -webkit-transform: rotateZ(-45deg)   ;
+             transform: rotateZ(-45deg)   ;
+         }
+ #timer{
+     height:25px ;
+
+ }
+
+     </style>
+
+ {% endblock %}
+{% block body %}
+
+
+    <section class="kategory__block bolum__foto__in clearfix">
+
+        <div class="container">
+
+
+
+            <div class="bolum__block clearfix">
+
+                <div class="kategory__content clearfix" >
+                    <div class="foto_time">
+                        <div class="foto_time__color" id="foto" ></div>
+                    </div>
+                    <div id="timer"></div>
+                    <div class="bolum__foto__question">Выбери правильный ответ</div>
+                    <div class="bolum__foto__suylom">слово {{ surot_menen_ish.oSoz }}</div>
+                    <div class="bolum__foto__select clearfix">
+                        <form  enctype="multipart/form-data">
+                            <div class="surot__block clearfix">
+
+                                <label for="soz1" class="surot__block_label">
+                                    <div class="blockSurot" id="sound">
+                                        <div class="surot">
+
+                                            {% thumbnail  surot_menen_ish_random[0]['surot'], 'middle' %}
+                                        </div>
+                                        <div class="surot__content">
+                                            <label class="surot__label">
+                                                <input type="radio" name="soz" id="soz1" value="{{ surot_menen_ish_random[0]['soz'] }}" class="surot__radio">
+                                                <i class="surot__i"></i>
+                                                {{ surot_menen_ish_random[0]['soz'] }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label for="soz2" class="surot__block_label">
+                                    <div class="blockSurot">
+                                        <div class="surot">
+                                            {#<img src="img/cher.jpg" alt="a" class="surot__img">#}
+                                            {% thumbnail   surot_menen_ish_random[1]['surot'], 'middle' %}
+                                        </div>
+                                        <div class="surot__content">
+                                            <label class="surot__label">
+                                                <input type="radio" name="soz" id="soz2" soz1="soz2" value="{{ surot_menen_ish_random[1]['soz'] }}" class="surot__radio">
+                                                <i class="surot__i"></i>
+                                                {{ surot_menen_ish_random[1]['soz'] }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label for="soz3" class="surot__block_label">
+                                    <div class="blockSurot">
+                                        <div class="surot">
+
+                                            {% thumbnail  surot_menen_ish_random[2]['surot'], 'middle' %}
+                                        </div>
+                                        <div class="surot__content">
+                                            <label class="surot__label">
+                                                <input type="radio" name="soz" id="soz3" value="{{ surot_menen_ish_random[2]['soz'] }}" class="surot__radio">
+                                                <i class="surot__i"></i>
+                                                {{ surot_menen_ish_random[2]['soz'] }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <a id="butId" href="#footer" >
+                                <div class="bolum__foto__btn">
+                                    <input id="Content"  onclick="return false" class="foto__submit__one" type="submit" value="проверить"/>
+                                </div>
+                            </a>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <section class="bolum__foto__footer" >
+        <div class="container" id="footer">
+            <div class="bolum__foto__check">
+                <div class="close-button"></div>
+                <div class="bolum__foto__info"></div>
+                <ul class="checkmark">    <li></li>   </ul>
+                <div class="bolum__foto__true">алма</div>
+            </div>
+            <div class="bolum__foto__check__btn">
+
+                <input class="bolum__foto__check__btn__in" type="submit" value="дальше"/>
+            </div>
+        </div>
+    </section>
+    <div id="category_id_surot_menen_ishto_id">
+        <p id="category_id">{{ category_id }} </p>
+        <p id="surot_menen_ishto_id"> {{  surot_menen_ish.id }}</p>
+        <input id="count" type="text" value="{{ count}}" placeholder="{{ count }}">
+        <input id="counter" type="text" value="{{ counter}}" placeholder="{{ counter }}">
+        <input id="totalCount" type="text" value="{{ totalCount}}" placeholder="{{ totalCount }}">
+
+    </div>
+    <audio ></audio>
+    <a style='position: fixed; bottom: 60px; right: 10px; cursor:pointer; display: none;'
+       href='#' id='Go_Bottom'>
+        <img src="{{ asset('img/down.png') }}" alt="Наверх" title="Наверх">
+    </a>
+    <a style='position: fixed; bottom: 60px; right: 10px; cursor:pointer;display: none;'
+       href='#' id='Go_Top'>
+        <img src="{{ asset('img/up.png') }}" alt="Вниз" title="Вниз">
+    </a>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('js/bolum/bolum_foto.js') }}"></script>
+
+
+    <script language = "javascript">
+
+        function success_sound() {
+            var path="{{ asset('sounds/success.mp3')}}";
+            var audio = new Audio(); // Создаём новый элемент Audio
+            audio.src = path; // Указываем путь к звуку "клика"
+            audio.autoplay = true; // Автоматически запускаем
+        }
+        function error_sound() {
+            var path="{{ asset('sounds/error.mp3')}}";
+            var audio = new Audio(); // Создаём новый элемент Audio
+            audio.src = path; // Указываем путь к звуку "клика"
+            audio.autoplay = true; // Автоматически запускаем
+        }
+        function alarm_sound() {
+            var path="{{ asset('sounds/alarm.mp3')}}";
+            var audio = new Audio(); // Создаём новый элемент Audio
+            audio.src = path; // Указываем путь к звуку "клика"
+            audio.autoplay = true; // Автоматически запускаем
+        }
+
+
+
+    </script>
+{% endblock %}

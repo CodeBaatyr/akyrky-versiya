@@ -19,3 +19,28 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: Переводы, label: Переводы текстов }
 
+    main.admin.category:
+        class: MainBundle\Admin\CategoryAdmin
+        arguments: [~, MainBundle\Entity\Category, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Category }
+
+    main.admin.surot.menen.ish:
+        class: MainBundle\Admin\Surot_menen_ishAdmin
+        arguments: [~, MainBundle\Entity\Surot_menen_ish, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Surot_menen_ish }
+
+    main.admin.suylom.kotoru:
+        class: MainBundle\Admin\Suylom_kotoruAdmin
+        arguments: [~, MainBundle\Entity\Suylom_kotoru, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Suylom_kotoru }
+
+    main.admin.test:
+        class: MainBundle\Admin\TestAdmin
+        arguments: [~, MainBundle\Entity\Test, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Test }
+
+

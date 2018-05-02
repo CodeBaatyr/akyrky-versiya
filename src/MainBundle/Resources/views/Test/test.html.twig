@@ -1,0 +1,94 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+
+    <style>
+        section{
+            width: 300px;
+            height: 400px;
+        }
+
+    </style>
+
+{% endblock %}
+{% block body %}
+
+<nav id="menu">
+
+    <ul>
+
+        <li><a  href="#ex1">Link #1</a></li>
+
+        <li><a href="#ex2">Link #2</a></li>
+
+        <li><a  href="#ex3">Link #3</a></li>
+
+        <li><a id="link" href="#ex4">Link #4</a></li>
+
+    </ul>
+</nav>
+
+<div id="content">
+
+    <section id="ex1">
+       1
+    </section>
+
+    <div class="separator"></div>
+
+    <section id="ex2">
+     2
+    </section>
+
+
+
+</div>
+    <a style='position: fixed; bottom: 60px; right: 1px; cursor:pointer; display:none;'
+       href='#' id='Go_Bottom'>
+        <img src="{{ asset('img/down.png') }}" alt="Наверх" title="Наверх">
+    </a>
+    <a style='position: fixed; bottom: 60px; right: 1px; cursor:pointer;display: none; '
+       href='#' id='Go_Top'>
+        <img src="{{ asset('img/up.png') }}" alt="Вниз" title="Вниз">
+    </a>
+
+{% endblock %}
+{% block javascripts %}
+    <script language="JavaScript" type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+
+    </script>
+    <script src="{{ asset('js/test/test.js') }}"></script>
+    {#<script language="JavaScript" type="text/javascript">#}
+        {#var go_down = jQuery('body');#}
+        {#jQuery(function() {#}
+            {#$("#Go_Top").hide().removeAttr("href");#}
+            {#if ($(window).scrollTop() >= "250") $("#Go_Top").fadeIn("slow")#}
+            {#var scrollDiv = $("#Go_Top");#}
+            {#$(window).scroll(function() {#}
+                {#if ($(window).scrollTop() <= "250") $(scrollDiv).fadeOut("slow")#}
+                {#else $(scrollDiv).fadeIn("slow")#}
+            {#});#}
+            {#$("#Go_Bottom").hide().removeAttr("href");#}
+            {#if ($(window).scrollTop() <= go_down.height()-"999") $("#Go_Bottom").fadeIn("slow")#}
+            {#var scrollDiv_2 = $("#Go_Bottom");#}
+            {#$(window).scroll(function() {#}
+                {#if ($(window).scrollTop() >= go_down.height()-"999") $(scrollDiv_2).fadeOut("slow")#}
+                {#else $(scrollDiv_2).fadeIn("slow")#}
+            {#});#}
+            {#$("#Go_Top").click(function() {#}
+                {#$("html, body").animate({scrollTop: 0}, "slow")#}
+            {#})#}
+            {#$("#Go_Bottom").click(function() {#}
+                {#$("html, body").animate({scrollTop: go_down.height()}, "slow")#}
+            {#})#}
+        {#});#}
+    {#</script>#}
+
+
+
+{% endblock %}
+
+
+
+
+

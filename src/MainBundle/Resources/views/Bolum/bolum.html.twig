@@ -1,0 +1,61 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+  #active{
+      display: none;
+  }
+    </style>
+{% endblock %}
+{% block body %}
+
+    <section class="kategory__block bolum__block__in">
+        <div class="container">
+            <div id="active">{{ active }}</div>
+            <div class="bolum__block">
+                <div class="kategory__content bolum__content">
+                    <div class="kategory__title">категории</div>
+                    <div class="bolum">
+                        <div class="lesson__blocks lesson__blocks_one">
+                            <a class="bolum__foto" href="{{ path('start',{cat_id:cat_id} ) }}">
+                                <div class="lesson__foto lesson__foto_one bolum__fotos">
+                                </div>
+                                <div>
+                                    <div class="lesson__title bolum__title">слова</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="lesson__blocks lesson__blocks_two">
+                            <a class="bolum__suylom" href="{{ path('start_suylom',{cat_id:cat_id} ) }}">
+                                <div class="lesson__foto lesson__foto_two bolum__fotos">
+                                </div>
+                                <div>
+                                    <div class="lesson__title bolum__title">перевод</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="lesson__blocks lesson__blocks_three">
+                            <a class="bolum__test" href="{{ path('start_bolum__test',{cat_id:cat_id} ) }}">
+                                <div class="lesson__foto lesson__foto_three bolum__fotos"></div>
+                                <div>
+                                    <div class="lesson__title bolum__title">тест</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/bolum/bolum.js') }}"></script>
+
+
+
+{% endblock %}
+

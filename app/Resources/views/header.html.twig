@@ -1,12 +1,87 @@
 
-<ul class="lang-menu">
-    <li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ky'}))}}">Kyrgyz</a></li>
-    <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ru'})) }}">Russian</a></li>
-    <li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">English</a></li>
-</ul>
+{#<ul class="lang-menu">#}
+    {#<li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ky'}))}}">Kyrgyz</a></li>#}
+    {#<li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ru'})) }}">Russian</a></li>#}
+    {#<li><a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">English</a></li>#}
+    {#<li><a href="{{ path('forma') }}">forma</a></li>#}
+{#</ul>#}
 
-<ul>
-    {% if app.user %}
-    <li><a href="{{ path('fos_user_security_logout') }}">Выйти</a></li>
-    {% endif %}
-</ul>
+{#<ul>#}
+    {#{% if app.user %}#}
+    {#<li><a href="{{ path('form') }}">Выйти</a></li>#}
+    {#{% endif %}#}
+{#</ul>#}
+<div class="loading">
+    <div class="overlay-loader">
+        <div class="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+<header class="kategory__header">
+    <div class="container">
+        <div class="header__menu">
+            <div onclick="exit()" class="header__logo"><a class="header__logo" href="#">БУЛБУЛ</a></div>
+            <div class="header__navigation">
+
+
+
+                <nav class="head__nav">
+                    <ul class="head__nav__list">
+                        {% if isNotIndexPage==true %}
+                             <li class="head__nav__item"><a class="head__nav__link" href="{{ path('category') }}">Главная</a></li>
+                        {% endif %}
+                        {% if bolum is defined  %}
+                            <li class="head__nav__item"><a class="head__nav__link" href="{{ path('bolum',{cat_id:bolum} ) }}">Разделы</a></li>
+                        {% endif %}
+
+                        {% if  not profile is defined  %}
+                        <li class="head__nav__item" id="profile"><a class="head__nav__link" href="#">Профиль</a></li>
+                        {% endif %}
+                        <li onclick="exit()" class="head__nav__item"><a class="head__nav__link" href="#">Выйти</a></li>
+
+
+                    </ul>
+                </nav>
+
+                <div class="open"><span class="cls"></span><span>
+						<ul class="sub-menu">
+                            {% if isNotIndexPage==true %}
+							<li class="head__nav__item"><a class="head__nav__link__adap" href="{{ path('category') }}">Главная</a></li>
+                            {% endif %}
+                            {% if bolum is defined  %}
+                                <li class="head__nav__item"><a class="head__nav__link__adap" href="{{ path('bolum',{cat_id:bolum} ) }}">Разделы</a></li>
+                            {% endif %}
+                            {% if  not profile is defined  %}
+							<li class="head__nav__item" id="profile"><a class="head__nav__link__adap" href="{{ path('profile') }}">Профиль</a></li>
+                            {% endif %}
+                            <li onclick="exit()" class="head__nav__item"><a class="head__nav__link" href="#">Выйти</a></li>
+						</ul></span><span class="cls"></span></div>
+               </div>
+
+
+
+        </div>
+    </div>
+</header>
+
+<script language = "javascript">
+
+    function exit() {
+        var isExit = confirm("Вы уверены что хотите выйти из аккаунта?");
+
+        if (isExit)
+        location.href = Routing.generate('exit_profile');
+    }
+
+
+
+
+
+</script>

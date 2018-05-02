@@ -1,5 +1,208 @@
 {% extends "::base.html.twig" %}
+ {% block stylesheets %}
+     {{ parent() }}
+     <style>
+
+         #message-auth{
+             display: none;
+             font-size: 87%;
+             color: #FDB6B6;
+         }
+         #message-auth-adap{
+             display: none;
+             font-size: 87%;
+             color: #FDB6B6;
+         }
+         .auth-loading{
+             margin-right: 35px;
+             display: none;
+
+         }
+         span{
+             margin-right: 40px;
+         }
+         #reg_login{
+             font-size: 93%;
+         }
+         #reg_password{
+             font-size: 93%;
+         }
+     </style>
+
+ {% endblock %}
 {% block body %}
-     {{ hello_world }}
+    <div class="loading">
+    <div class="overlay-loader">
+    <div class="loader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    </div>
+    </div>
+    </div>
+    <canvas id="pixie"></canvas>
+    <header class="header">
+    <div class="container">
+    <div class="header__fon">
+    <div class="header__menu">
+    <div class="header__logo"><a class="header__logo" href="#">БУЛБУЛ</a></div>
+    <div class="header__navigation">
+        <div class="open"><span class="cls"></span><span>
+              <ul class="sub-menu">
+                <li class="head__nav__item"><a class="head__nav__link__adap about" href="#">Информация</a></li>
+                <li class="head__nav__item"><a class="head__nav__link__adap header__start" href="#">Регистрация</a></li>
+                <li class="head__nav__item">
+                  <div class="header__input__rel"><a class="head__nav__link__adap header__input__link__adap" href="#">Войти</a></div>
+                </li>
+              </ul></span><span class="cls"></span></div>
+        <nav class="head__nav">
+            <ul class="head__nav__list">
+                <li class="head__nav__item"><a class="head__nav__link about" href="#">Информация</a></li>
+                <li class="head__nav__item"><a class="head__nav__link header__start" href="#">Регистрация</a></li>
+                <li class="head__nav__item">
+                    <div class="header__input__rel"><a class="head__nav__link header__input__link" href="#">Войти</a>
+                        <div class="header__form__input">
+                            <form id="input" enctype="multipart/form-data">
+                                <div class="header__from__in">
+                                    <p id="message-auth">неверный <strong>логин (почта)</strong> <br> <span>или <strong>пароль</strong></span></p>
+                                    <div class="header__login">
+                                        <div class="label__login">
+                                            <label for="reg_login">логин или почта</label>
+                                        </div>
+                                        <input class="header__input" id="reg_login" type="text" placeholder="логин или пароль" name="reg_login" required/>
+                                    </div>
+                                    <div class="header__password">
+                                        <div class="label__password">
+                                            <label for="reg_password">пароль</label>
+                                        </div>
+                                        <input class="header__input" id="reg_password" type="password" name="reg_password" placeholder="пароль" required/>
+                                    </div>
+                                    <div class="header__btn">
+                                    <input onclick="return false" class="header__submit" id="button-auth" type="submit" value="начать"/>
+                                    </div>
+
+                                    <p  class="auth-loading" ><img src=" {{ asset('img/loading.gif') }}" /></p>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    </div>
+    </div>
+    <div class="header__info"><img class="header__foto" src="img/logoww.png" alt="foto"/>
+        <div class="header__title">Кыргызский язык</div>
+        <div class="header__text">Изучи кыргызский с нами, это весело</div>
+    </div>
+    <section class="about__lesson">
+        <div class="container">
+            <div class="lesson__info">
+                <div class="lesson__blocks lesson__blocks_one">
+                    <div class="lesson__foto lesson__foto_one"></div>
+                    <div class="lesson__title">Читать</div>
+                    <div class="lesson__text">
+                        Регулярное чтение, а особенно чтение вслух существенно ускоряет освоение языка.
+                    </div>
+                </div>
+                <div class="lesson__blocks lesson__blocks_two">
+                    <div class="lesson__foto lesson__foto_two"></div>
+                    <div class="lesson__title">Писать</div>
+                    <div class="lesson__text">
+                        Написания предложений, слов улучшает память и помогает быстрее освоить новый язык.
+                    </div>
+                </div>
+                <div class="lesson__blocks lesson__blocks_three">
+                    <div class="lesson__foto lesson__foto_three"></div>
+                    <div class="lesson__title">Говорить</div>
+                    <div class="lesson__text">
+                        Общение позволяет испытать на прочность полученные теоретические знания и навыки.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {#регистрация башы#}
+    <div class="lesson__form">
+
+        <form   id="form_reg">
+            <div class="lesson__from__in">
+                <div class="lesson__login">
+                    <div class="lesson__login">
+                        <label for="reg_login_les">ЛОГИН</label>
+                    </div>
+                    <div id="focuId">
+                        <input class="lesson__input" id="reg_login_les" type="text" placeholder="логин" required="required" name="reg_login_les"/>
+                    </div>
+                </div>
+                <div class="lesson__password">
+                    <div class="label__password">
+                        <label for="reg_password_les">ПАРОЛЬ</label>
+                    </div>
+                    <input class="lesson__input" id="reg_password_les" type="password" placeholder="пароль" required="required" name="reg_password_les"/>
+                </div>
+
+                <div class="lesson__email">
+                    <div class="label__email">
+                        <label for="reg_email_les">EMAIL</label>
+                    </div>
+                    <input class="lesson__input" id="reg_email_les" type="email" placeholder="email" required="required" name="reg_email_les"/>
+                </div>
+                <div class="lesson__btn">
+                    <input class="lesson__submit"   type="submit" value="регистрация" name="reg_submit" id="form_submit" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    {#регистрация аягы#}
+    <div class="header__form__input_adap">
+        <div class="header__form__input_adap">
+
+            <form  enctype="multipart/form-data">
+                <div class="header__from__in">
+                    <div class="header__login">
+                        <div class="label__login">
+                            <p id="message-auth-adap">неверный <strong>логин (почта)</strong> <br> <span>или <strong>пароль</strong></span></p>
+                            <label for="reg_login_adap">логин или почта</label>
+                        </div>
+                        <input class="header__input" id="reg_login_adap" name="reg_login_adap" type="text" placeholder="логин или пароль" required/>
+                    </div>
+                    <div class="header__password">
+                        <div class="label__password">
+                            <label for="reg_password_adap">пароль</label>
+                        </div>
+                        <input class="header__input" id="reg_password_adap" name="reg_password_adap" type="password" placeholder="пароль" required/>
+                    </div>
+
+                    <div class="header__btn">
+                        <input onclick="return false" id="button-auth-adap" class="header__submit" type="submit" value="начать"/>
+                    </div>
+
+                    <p  class="auth-loading" ><img src=" {{ asset('img/loading.gif') }}" /></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </header>
+
+
+
+
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/registration/registration.js') }}"></script>
+    <script src="{{ asset('js/vhod/vhod.js') }}"></script>
+{% endblock %}
+
+
 

@@ -1,0 +1,203 @@
+{% extends "::base.html.twig" %}
+
+ {% block stylesheets %}
+     {{ parent() }}
+     <link type="text/css" rel="stylesheet" href="{{ asset('css/bolum__suylom/bolum__suylom.css') }}"/>
+     <style>
+         .bolum__suylom__footer{
+             display: none;
+         }
+         .checkmark{
+             display: none;
+         }
+         ul.checkmark li {
+
+             font-size: 60px;
+             margin-bottom: 1em;
+             list-style-type: none;
+             padding: 0.25em 0 0 2.5em;
+             position: relative;
+             float: left;
+         }
+         ul.checkmark li:before {
+             content: " ";
+             display: block;
+             border:  solid 0.8em #FFFFFF;
+             border-radius: 0.8em;
+             height: 0;
+             width: 0;
+             position: absolute;
+             left: 0.5em;
+             top: 40%;
+             margin-top: -0.5em;
+         }
+         ul.checkmark li:after {
+             content: " ";
+             display: block;
+             width: 0.3em;
+             height: 0.6em;
+             border: solid #8DBC01;
+             border-width: 0 0.2em 0.2em 0;
+             position: absolute;
+             left: 1em;
+             top: 40%;
+             margin-top: -0.2em;
+             -webkit-transform: rotate(45deg);
+             -moz-transform: rotate(45deg);
+             -o-transform: rotate(45deg);
+             transform: rotate(45deg);
+         }
+         .close-button {
+             display: none;
+             float: left;
+             margin-right: 10px;
+             -webkit-box-sizing: content-box;
+             -moz-box-sizing: content-box;
+             box-sizing: content-box;
+             width: 0.75em;
+             height: 0.75em;
+             position: relative;
+             border: none;
+             -webkit-border-radius: 1em;
+             border-radius: 1em;
+             font: normal 8em/normal Arial, Helvetica, sans-serif;
+             color: rgba(0,0,0,1);
+             -o-text-overflow: clip;
+             text-overflow: clip;
+             background: white;
+         }
+
+         .close-button::before {
+             display: inline-block;
+             -webkit-box-sizing: content-box;
+             -moz-box-sizing: content-box;
+             box-sizing: content-box;
+             width: 0.45em;
+             height: 0.1em;
+             position: absolute;
+             content: "";
+             top: 0.33em;
+             left: 0.155em;
+             border: none;
+             font: normal 100%/normal Arial, Helvetica, sans-serif;
+             color: rgba(0,0,0,1);
+             -o-text-overflow: clip;
+             text-overflow: clip;
+             background: red;
+             text-shadow: none;
+             -webkit-transform: rotateZ(45deg)   ;
+             transform: rotateZ(45deg)   ;
+         }
+
+         .close-button::after {
+             display: inline-block;
+             -webkit-box-sizing: content-box;
+             -moz-box-sizing: content-box;
+             box-sizing: content-box;
+             width: 0.45em;
+             height: 0.1em;
+             position: absolute;
+             content: "";
+             top: 0.33em;
+             left: 0.155em;
+             border: none;
+             font: normal 100%/normal Arial, Helvetica, sans-serif;
+             color: rgba(0,0,0,1);
+             -o-text-overflow: clip;
+             text-overflow: clip;
+             background: red;
+             text-shadow: none;
+             -webkit-transform: rotateZ(-45deg)   ;
+             transform: rotateZ(-45deg)   ;
+         }
+         #category_id_suylom_id{
+             display: none;
+         }
+         /*#test{*/
+             /*color: red;*/
+         /*}*/
+     </style>
+ {% endblock %}
+{% block body %}
+    <section class="kategory__block bolum__suylom__in">
+        <div class="container">
+            <div class="bolum__block">
+                <div class="kategory__content bolum__content">
+                    <div class="foto_time">
+                        <div class="foto_time__color" id="foto"  ></div>
+                    </div>
+                    <div class="bolum__suylom__question">Переведите предложение</div>
+                    <div class="bolum__suylom__suylom">{{ suylom_kotoru.kSuy }}</div>
+                    <div class="bolum__suylom__input">
+                        <form action="#" method="GET" enctype="multipart/form-data">
+                            <textarea class="suylom__area" required="required"  > </textarea>
+                            <a id="butId" href="#footer" >
+                                <div class="bolum__suylom__btn">
+                                    <input onclick="return false" class="suylom__submit__one" type="submit" value="проверить"/>
+                                </div>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="bolum__suylom__footer">
+        <div class="container" id="footer">
+            <div class="bolum__suylom__check">
+                <div class="close-button"></div>
+                <div class="bolum__suylom__info"></div>
+                <ul class="checkmark">    <li></li>   </ul>
+                <div class="bolum__suylom__true">окуйт</div>
+            </div>
+            <div class="bolum__suylom__check__btn">
+                <input class="bolum__suylom__check__btn__in" type="submit" value="дальше"/>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="category_id_suylom_id">
+        <input id="category_id" type="text" value="{{suylom_kotoru.category.id}}">
+        <input id="suylom_id" type="text" value="{{ suylom_kotoru.id }}">
+        <input id="count" type="text" value="{{ count}}" placeholder="{{ count }}">
+        <input id="counter" type="text" value="{{ counter}}" placeholder="{{ counter }}">
+        <input id="totalCount" type="text" value="{{ totalCount}}" placeholder="{{ totalCount }}">
+
+    </div>
+
+    <a style='position: fixed; bottom: 100px; right: 25px; cursor:pointer; display: none;'
+       href='#' id='Go_Bottom'>
+        <img src="{{ asset('img/down.png') }}" alt="Наверх" title="Наверх">
+    </a>
+    <a style='position: fixed; bottom: 100px; right: 25px; cursor:pointer;display: none;'
+       href='#' id='Go_Top'>
+        <img src="{{ asset('img/up.png') }}" alt="Вниз" title="Вниз">
+    </a>
+
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/bolum/suylom_kotoru.js') }}"></script>
+    <script language = "javascript">
+        function success_sound() {
+            var path="{{ asset('sounds/success.mp3')}}";
+            var audio = new Audio(); // Создаём новый элемент Audio
+            audio.src = path; // Указываем путь к звуку "клика"
+            audio.autoplay = true; // Автоматически запускаем
+        }
+        function error_sound() {
+            var path="{{ asset('sounds/error.mp3')}}";
+            var audio = new Audio(); // Создаём новый элемент Audio
+            audio.src = path; // Указываем путь к звуку "клика"
+            audio.autoplay = true; // Автоматически запускаем
+        }
+
+
+
+    </script>
+
+
+{% endblock %}
+

@@ -85,12 +85,22 @@ doctrine:
             ApplicationSonataUserBundle: ~
             SonataUserBundle: ~
 # Swiftmailer Configuration
+#swiftmailer:
+#    transport: "%mailer_transport%"
+#    host:      "%mailer_host%"
+#    username:  "%mailer_user%"
+#    password:  "%mailer_password%"
+#    spool:     { type: memory }
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    port:      %mailer_port%
+    encryption: %mailer_encryption%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    auth_mode: "%mailer_auth_mode%"
     spool:     { type: memory }
+
 
 sonata_block:
     default_contexts: [AiO]
@@ -164,7 +174,7 @@ sonata_admin:
         handler: sonata.admin.security.handler.role
         information:
               ADMIN: [ LIST, CREATE, VIEW]
-    title: AiO
+    title: Кыргыз Тили
     title_logo: /apple-touch-icon.png
     templates:
         # other configuration options
@@ -308,3 +318,4 @@ nelmio_cors:
             max_age: 3600
 
 nelmio_api_doc: ~
+

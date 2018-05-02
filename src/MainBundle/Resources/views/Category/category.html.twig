@@ -1,0 +1,87 @@
+{% extends "::base.html.twig" %}
+ {% block stylesheets %}
+     {{ parent() }}
+     <style>
+
+
+     </style>
+
+ {% endblock %}
+{% block body %}
+
+
+    <section class="kategory__block">
+        <div class="container">
+            <div class="kategory__content">
+                <div class="kategory__title">Категории</div>
+                <div class="kategory__in">{##}
+
+
+
+
+                    {% for key,category in category %}
+
+                        {% if category["isActive"] == true %}
+
+
+                            <div class="kategory__icons_in">
+                                <a class="kategory__icons__link__open" href="{{ path('bolum',{cat_id:category['id']} ) }}">
+
+                                    <div class="kategory__icons__open">
+                                        <div class="kategory__icon__open " style="{{ category['position'] }}"></div>
+                                    </div>
+                                </a>
+                                <div class="kategory__icons__info">{{ category['name'] }}</div>
+                            </div>
+
+
+                        {% else %}
+
+
+
+
+                            <div class="kategory__icons_in">
+
+
+
+                                    <div class="kategory__icons">
+
+                                        <div class="kategory__icon_close " style="{{ category['position'] }}"></div>
+                                    </div>
+
+
+                                <div class="kategory__icons__info">{{ category['name'] }}</div>
+
+
+
+
+                            </div>
+
+
+
+
+
+
+                        {% endif %}
+
+
+
+
+
+                    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+                </div>{##}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends "::base.html.twig" %}
+  {% block stylesheets %}
+      <style>
+          .alert {
+              padding: 20px;
+              background-color: #6BBD6E;
+              color: white;
+              width: 300px;
+              display: none;
+          }
+
+          .closebtn {
+              margin-left: 15px;
+              color: white;
+              font-weight: bold;
+              float: right;
+              font-size: 22px;
+              line-height: 20px;
+              cursor: pointer;
+              transition: 0.3s;
+          }
+
+          .closebtn:hover {
+              color: black;
+          }
+      </style>
+  {% endblock %}
+{% block body %}
+    <form  id="form_reg">
+
+            <ul id="form-registration">
+                <li>
+                    <label>Логин</label>
+                    <span class="star">*</span>
+                    <input type="text" name="reg_login" id="reg_login" />
+                </li>
+                <li>
+                    <label>Пароль</label>
+                    <span class="star">*</span>
+                    <input type="text" name="reg_pass" id="reg_pass" />
+                </li>
+                <li>
+                    <label>E-mail</label>
+                    <span class="star">*</span>
+                    <input type="text" name="reg_email" id="reg_email" />
+                </li>
+            </ul>
+        <p align="right"> <input type="submit" name="reg_submit" id="form_submit"value="Регистрация"/></p>
+    </form>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>вы успешно зарегистрированы!</strong>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('public/jquery.form.js') }}"></script>
+    <script src="{{ asset('public/jquery.validate.js') }}"></script>
+    <script language = "javascript">
+        $(document).ready(function(){
+
+            $('#form_reg').validate(//проверка полей на правельность без перезагрузки странички
+                {
+                    // правила для проверки
+                    rules:{
+                        "reg_login":{
+                            required:true,//не пустое ли поле проверка
+                            minlength:5,
+                            maxlength:15,
+                            remote: {//true же false жиберет
+                                type: "post",
+                                url: Routing.generate('form')//базага жиберет занят болбосо тура деген жооп алабыз
+                            }
+                        },
+                        "reg_pass":{
+                            required:true,
+                            minlength:7,
+                            maxlength:15
+                        },
+                        "reg_email":{
+                            required:true,
+                            email:true
+                        }
+                    },
+
+                    // выводимые сообщения при нарушении соответствующих правил
+                    messages:{
+                        "reg_login":{
+                            required:"Укажите Логин!",
+                            minlength:"От 5 до 15 символов!",
+                            maxlength:"От 5 до 15 символов!",
+                            remote: "Логин занят!"
+                        },
+                        "reg_pass":{
+                            required:"Укажите Пароль!",
+                            minlength:"От 7 до 15 символов!",
+                            maxlength:"От 7 до 15 символов!"
+                        },
+                        "reg_email":{
+                            required:"Укажите свой E-mail",
+                            email:"Не корректный E-mail"
+                        }
+                    },
+
+                    submitHandler: function(form){//эгер баары туура болсо
+                        $.ajax({//кнопканы басканда
+                            type: "post",
+                            url:Routing.generate('reg'),
+                            success: function(data) {
+
+                                if (data == 'true')
+                                {
+                                    $(".alert").show();
+
+                                }else alert('вы не зарегистрированы');
+                            }
+                        });
+                    }
+                });
+
+
+
+
+
+
+
+
+
+        });
+    </script>
+{% endblock %}

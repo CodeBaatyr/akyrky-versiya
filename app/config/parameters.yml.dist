@@ -14,7 +14,7 @@ parameters:
     mailer_transport: gmail
     mailer_host: smtp.gmail.com
     mailer_user: zyntemirov@gmail.com
-    mailer_password: 123123da
+    mailer_password: 123123dafdas
     locale:            ru
     # A secret key that's used to generate certain security-related tokens
     secret:            sgfuesfh837rwydho$iesfb983@qoeiudapasdasdsohf9woai

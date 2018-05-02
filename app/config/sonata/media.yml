@@ -21,6 +21,7 @@ sonata_media:
             formats:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
+                middle: { width: 190px ,height: 190px, quality: 70}
 
         article_cover:
             providers:

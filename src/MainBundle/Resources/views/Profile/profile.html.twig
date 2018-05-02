@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+
+    <section class="portfile__block">
+        <div class="container">
+            <div class="portfile__content">
+                <div class="portfile__user_name">{{ login }}</div>
+
+                <div class="portfile__info"> {#ичи башы#}
+
+
+                    {% for array in array %}
+                        {#{% if array["dayarBy"] == true %}#}
+                            <div class="portfile__foto__pr">
+                                <div class="portfile__foto " style="{{ array['position'] }}"></div>
+                                <div>{{ array['name'] }}</div>
+                                <div class="portfile__text">
+                                    <div class="portfile__text__color" style="{{  array['styleWidth']}} " >{{  array['baa']}}%</div>
+                                </div>
+                            </div>
+                        {#{% endif %}#}
+
+                    {% endfor %}
+
+                </div>{#ичи аягы#}
+            </div>
+        </div>
+    </section>
+{% endblock %}

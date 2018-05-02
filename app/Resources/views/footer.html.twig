@@ -1,0 +1,28 @@
+<footer class="kategory__footer">
+    <div class="container">
+        <div id="MyClockDisplay"></div>
+    </div>
+</footer>
+{% block javascripts %}
+    <script language = "javascript">
+        function showTime() {
+
+            newDate=new Date();
+            var h = newDate.getHours()
+            var m = newDate.getMinutes()
+            var s = newDate.getSeconds();
+
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            var time = h + ":" + m + ":" + s;
+            document.getElementById("MyClockDisplay").innerText = time;
+            document.getElementById("MyClockDisplay").textContent = time;
+            setTimeout(showTime, 1000);
+        }
+        showTime();
+
+    </script>
+{% endblock %}
