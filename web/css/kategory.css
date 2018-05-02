@@ -1,0 +1,162 @@
+.kategory__header {
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 3%;
+  background: linear-gradient(#05062B, #154272);
+}
+.kategory__header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.kategory__header:last-child {
+  margin-right: 0%;
+}
+
+.kategory__block {
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 3%;
+  background: #E9E9E9;
+}
+.kategory__block::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.kategory__block:last-child {
+  margin-right: 0%;
+}
+
+.kategory__content {
+  margin: 1.25rem 0;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 3.125rem;
+  border-radius: 4px;
+}
+
+.kategory__title {
+  font-family: "robotoregular";
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.kategory__in {
+  text-align: center;
+}
+
+.kategory__icons_in {
+  display: inline-block;
+}
+
+.icons__open {
+  display: none;
+}
+
+
+.kategory__icon_close {
+  width: 110px;
+  height: 110px;
+  background-image: url(https://d35aaqx5ub95lt.cloudfront.net/images/skill-icons-locked2.svg);
+}
+
+.kategory__icon__open {
+  width: 110px;
+  height: 110px;
+  background-image: url(https://d35aaqx5ub95lt.cloudfront.net/images/skill-icons-unlocked2.svg);
+}
+.open_icon__1{
+  background-position: 0px 0;
+}
+.open_icon__2{
+  background-position: -110px 0;
+}
+.open_icon__3{
+  background-position: -220px 0;
+}
+.open_icon__4{
+  background-position: -550px 0;
+}
+.open_icon__5{
+  background-position: -440px -330px;
+}
+.icon__1 {
+  background-position: 0px 0;
+}
+.icon__2 {
+  background-position: -110px 0;
+}
+
+.icon__3 {
+
+  background-position: -220px 0;
+}
+
+.icon__4 {
+  background-position: -550px 0;
+}
+
+.icon__5 {
+  background-position: -440px -330px;
+}
+
+ {
+  background: #F0F0F0;
+  padding: 0.625rem;
+  margin: 4.375rem 3.125rem 1.25rem 3.125rem;
+  border-radius: 50%;
+}
+
+.kategory__icons__open {
+  background: #3CA2F5;
+  padding: 0.625rem;
+  margin: 4.375rem 3.125rem 1.25rem 3.125rem;
+  border-radius: 50%;
+}
+
+.icons__link__open__one {
+  display: none;
+}
+
+.icons__link__open__two {
+  display: none;
+}
+
+.icons__link__open__three {
+  display: none;
+}
+
+.icons__link__open__four {
+  display: none;
+}
+
+.kategory__footer {
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 3%;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+.kategory__footer::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.kategory__footer:last-child {
+  margin-right: 0%;
+}
+#MyClockDisplay {
+  font-size: 2rem;
+}
+

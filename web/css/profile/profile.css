@@ -1,0 +1,154 @@
+.portfile__block {
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 3%;
+  background: #E9E9E9;
+}
+.portfile__block::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.portfile__block:last-child {
+  margin-right: 0%;
+}
+
+.portfile__content {
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 3%;
+  box-sizing: border-box;
+  margin: 1.25rem 0;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 3.125rem;
+  border-radius: 4px;
+}
+.portfile__content::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.portfile__content:last-child {
+  margin-right: 0%;
+}
+
+.portfile__user_name {
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 3%;
+  font-family: "robotoregular";
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.portfile__user_name::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.portfile__user_name:last-child {
+  margin-right: 0%;
+}
+
+.portfile__info {
+  text-align: center;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 3%;
+  box-sizing: border-box;
+  margin-top: 3.125rem;
+}
+.portfile__info::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.portfile__info:last-child {
+  margin-right: 0%;
+}
+
+.portfile__foto__block {
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 3.125rem;
+}
+
+.portfile__foto__pr {
+  text-align: center;
+  display: inline-block;
+  width: 30%;
+  margin: 0 1.25rem;
+}
+
+.portfile__text {
+  background: #E9E9E9;
+  margin-top: 0.3125rem;
+  margin-bottom: 1.25rem;
+}
+
+.portfile__text__color {
+  text-align: right;
+  color: #fff;
+  width: 20%;
+  background: linear-gradient(#05062B, #154272);
+}
+
+.portfile__color_one {
+  width: 80%;
+}
+
+.portfile__color_two {
+  width: 90%;
+}
+
+.portfile__color_three {
+  width: 50%;
+}
+
+.portfile__color_four {
+  width: 30%;
+}
+
+.portfile__foto {
+  display: inline-block;
+  width: 110px;
+  height: 110px;
+  background-image: url(https://d35aaqx5ub95lt.cloudfront.net/images/skill-icons-gold2.svg);
+}
+
+.portfile__foto_one {
+  background-position: -110px 0;
+}
+
+.portfile__foto_two {
+  background-position: -220px 0;
+}
+
+.portfile__foto_three {
+  background-position: -550px 0;
+}
+
+.portfile__foto_four {
+  background-position: -440px -330px;
+}
+@media screen and (max-width: 768px) {
+  .portfile__foto__pr{
+    width: 60%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,59 @@
+.bolum__block {
+  text-align: center;
+}
+
+.bolum__content {
+  display: inline-block;
+}
+
+.bolum {
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 3%;
+  margin-top: 1.25rem;
+}
+.bolum::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.bolum:last-child {
+  margin-right: 0%;
+}
+
+.bolum__fotos {
+  border: 1px solid #133B69;
+}
+
+.bolum__title {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 20%/50%;
+  background: linear-gradient(#154272, #06092E);
+  box-shadow: inset 0px 0px 2px 2px #06092E;
+}
+
+.bolum__foto {
+  text-decoration: none;
+}
+
+.bolum__test {
+  text-decoration: none;
+}
+
+.bolum__suylom {
+  text-decoration: none;
+}
+
+.bolum__foto__block {
+  display: none;
+}
+
+

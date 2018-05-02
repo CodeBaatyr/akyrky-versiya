@@ -1,0 +1,19 @@
+{
+  "name": "Project_soft",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jeet": "^7.2.0",
+    "font-awesome": "fontawesome#^4.7.0",
+    "owl.carousel": "OwlCarousel2#^2.2.1"
+  }
+}
